@@ -17,7 +17,7 @@ type Mutation {
   deletePost(id: Int!): Post
   incrementPostViewCount(id: Int!): Post
   login(email: String!, password: String!): AuthPayload
-  signup(email: String!, name: String, password: String!): AuthPayload
+  signup(email: String!, name: String!, password: String!): AuthPayload
   togglePublishPost(id: Int!): Post
 }
 
@@ -47,6 +47,7 @@ type Query {
   feed(orderBy: PostOrderByUpdatedAtInput, searchString: String, skip: Int, take: Int): [Post!]!
   me: User
   postById(id: Int): Post
+  users: [User]
 }
 
 enum SortOrder {

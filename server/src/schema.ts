@@ -85,6 +85,14 @@ const Query = objectType({
       },
     })
 
+    t.list.field('users', {
+      type: 'User',
+      resolve: (_parent, args, context: Context) => {
+        return context.prisma.user
+          .findMany()
+      },
+    })
+    
     t.list.field('draftsByUser', {
       type: 'Post',
       args: {
@@ -118,7 +126,7 @@ const Mutation = objectType({
     t.field('signup', {
       type: 'AuthPayload',
       args: {
-        name: stringArg(),
+        name: nonNull(stringArg()),
         email: nonNull(stringArg()),
         password: nonNull(stringArg()),
       },
