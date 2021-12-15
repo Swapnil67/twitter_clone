@@ -43,9 +43,8 @@ const SignUp = () => {
       <h1>SignUp</h1>
       <Formik initialValues={initialValues} 
         validationSchema={validationSchema}
-        onSubmit={async (values) => {
+        onSubmit={async (values, {setSubmitting}) => {
           console.log(values);
-          
           // setSubmittng(true)
           // const response = await SignUp({variables: values});
           // localStorage.setItem("token", response.data.signup.token)
