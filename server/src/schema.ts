@@ -153,11 +153,20 @@ const Mutation = objectType({
         password: nonNull(stringArg()),
       },
       resolve: async (_parent, { email, password }, context: Context) => {
-        const user = await context.prisma.user.findUnique({
-          where: {
-            email,
-          },
-        })
+        let user;
+        if(email.includes("@")) {
+          user = await context.prisma.user.findUnique({
+            where: {
+              email,
+            },
+          })
+        }else {
+          user = await context.prisma.user.findUnique({
+            where: {
+              name: email
+            }
+          })
+        }
         if (!user) {
           throw new Error(`No user found for email: ${email}`)
         }
