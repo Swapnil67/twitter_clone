@@ -40,7 +40,7 @@ const SignUp = () => {
   })
 
   return (
-    <div>
+    <div className="container">
       <img src={TwitterLogo} alt="logo" style={{ width: '50px' }} className="logo" />
       <h3>Signup</h3>
       <Formik initialValues={initialValues} 

@@ -26,7 +26,7 @@ const Login = ({}) => {
 
   return (
 
-    <div>
+    <div className="container">
       <img src={TwitterLogo} alt="logo" style={{ width: '50px' }} className="logo" />
       <h3>Login Page to Fake Twitter</h3>
       <Formik initialValues={{email: "", password: ""}} validationSchema={validationSchema}
